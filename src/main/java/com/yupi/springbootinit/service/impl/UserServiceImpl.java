@@ -8,17 +8,21 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yupi.springbootinit.common.ErrorCode;
 import com.yupi.springbootinit.constant.CommonConstant;
 import com.yupi.springbootinit.exception.BusinessException;
+import com.yupi.springbootinit.exception.ThrowUtils;
 import com.yupi.springbootinit.mapper.UserMapper;
 import com.yupi.springbootinit.model.dto.user.UserQueryRequest;
+import com.yupi.springbootinit.model.entity.Credit;
 import com.yupi.springbootinit.model.entity.User;
 import com.yupi.springbootinit.model.enums.UserRoleEnum;
 import com.yupi.springbootinit.model.vo.LoginUserVO;
 import com.yupi.springbootinit.model.vo.UserVO;
+import com.yupi.springbootinit.service.CreditService;
 import com.yupi.springbootinit.service.UserService;
 import com.yupi.springbootinit.utils.SqlUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
@@ -41,6 +45,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 盐值，混淆密码
      */
     private static final String SALT = "yupi";
+
+    @Resource
+    private CreditService creditService;
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
@@ -76,6 +83,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             if (!saveResult) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "注册失败，数据库错误");
             }
+            //4. 插入积分表
+            Credit credit = new Credit();
+            Long userId = user.getId();
+            credit.setUserId(userId);
+            boolean result = creditService.save(credit);
+            ThrowUtils.throwIf(!result, ErrorCode.SYSTEM_ERROR,"注册失败，数据库错误");
             return user.getId();
         }
     }
@@ -126,8 +139,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             // 用户不存在则创建
             if (user == null) {
                 user = new User();
-                user.setUnionId(unionId);
-                user.setMpOpenId(mpOpenId);
                 user.setUserAvatar(wxOAuth2UserInfo.getHeadImgUrl());
                 user.setUserName(wxOAuth2UserInfo.getNickname());
                 boolean result = this.save(user);
@@ -254,7 +265,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         String unionId = userQueryRequest.getUnionId();
         String mpOpenId = userQueryRequest.getMpOpenId();
         String userName = userQueryRequest.getUserName();
-        String userProfile = userQueryRequest.getUserProfile();
         String userRole = userQueryRequest.getUserRole();
         String sortField = userQueryRequest.getSortField();
         String sortOrder = userQueryRequest.getSortOrder();
@@ -263,7 +273,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         queryWrapper.eq(StringUtils.isNotBlank(unionId), "unionId", unionId);
         queryWrapper.eq(StringUtils.isNotBlank(mpOpenId), "mpOpenId", mpOpenId);
         queryWrapper.eq(StringUtils.isNotBlank(userRole), "userRole", userRole);
-        queryWrapper.like(StringUtils.isNotBlank(userProfile), "userProfile", userProfile);
         queryWrapper.like(StringUtils.isNotBlank(userName), "userName", userName);
         queryWrapper.orderBy(SqlUtils.validSortField(sortField), sortOrder.equals(CommonConstant.SORT_ORDER_ASC),
                 sortField);

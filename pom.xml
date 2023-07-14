@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yupi</groupId>
-    <artifactId>springboot-init</artifactId>
+    <artifactId>gebi-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-init</name>
+    <name>gebi-backend</name>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -33,6 +33,18 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.2</version>
+        </dependency>
+        <!-- https://github.com/redisson/redisson#quick-start -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.21.3</version>
+        </dependency>
+        <!--        鱼聪明-->
+        <dependency>
+            <groupId>com.yucongming</groupId>
+            <artifactId>yucongming-java-sdk</artifactId>
+            <version>0.0.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
         <dependency>
@@ -66,6 +78,13 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>3.0.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
         <!-- https://cloud.tencent.com/document/product/436/10199-->
         <dependency>
             <groupId>com.qcloud</groupId>
@@ -94,6 +113,12 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.8</version>
+        </dependency>
+<!--        支付宝支付-->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.38.4.ALL</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

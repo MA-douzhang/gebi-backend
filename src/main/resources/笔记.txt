@@ -1,0 +1,109 @@
+接入支付宝沙盒支付
+当充值积分时，生成订单消息存入数据库，可以假入延迟队列，当时间过期时，给这个订单设置为支付过期，当选择成功支付后给延迟队列回复并更新数据库为成功支付并增加积分。
+说明：用于充值积分，1元==100积分，设计订单表
+   -- 充值订单表
+create table if not exists orders
+(
+    id         bigint auto_increment comment 'id' primary key comment '订单id',
+    alipayTradeNo     varchar(128)              null comment '支付宝交易凭证id',
+    subject varchar(128) not null  comment '交易名称' ,
+    totalAmount double not null comment '交易金额',
+    tradeStatus  varchar(128) not null default 'unpaid ' comment 'unpaid,paying,succeed,failed',
+    buyerId varchar(64) null comment '支付宝买家id',
+    createTime datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    updateTime datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete   tinyint  default 0                 not null comment '是否删除'
+) comment '充值订单表' collate = utf8mb4_unicode_ci;
+内网穿透地址设置 需要加上/api/alipay/notify
+作用是作为支付成功后的回调接收消息
+request.setNotifyUrl("http://d2a39q.natappfree.cc/api/alipay/notify");
+在本地环境内网穿透时，地址需要更改
+订单支付成功回调
+  // 查询订单并更新状态并加积分
+  //查询当前订单消息
+Orders orders = ordersService.getById(outTradeNo);
+orders.setTradeStatus(OrderConstant.SUCCEED);
+orders.setAlipayTradeNo(alipayTradeNo);
+orders.setBuyerId(buyerId);
+boolean result = ordersService.updateById(orders);
+ThrowUtils.throwIf(!result, ErrorCode.SYSTEM_ERROR,"订单更新错误");
+//根据充值金额增加积分
+result = creditService.updateCredits(orders.getUserId(), 100L * totalAmount);
+ThrowUtils.throwIf(!result, ErrorCode.SYSTEM_ERROR,"积分更新错误");
+
+后端支付流程：
+延迟队列
+定义一个支付的队列采用TTL队列和死信队列，当订单超过5分钟未支付，设置该订单失效
+/**
+ * 用于创建订单程序的交换机和队列
+ */
+@Configuration
+public class AlipayMqInitMain {
+    /**
+     * 将死信队列和交换机声明
+     */
+    @Bean
+    Queue AliPayDeadQueue(){
+        return QueueBuilder.durable(MqConstant.ORDERS_DEAD_QUEUE_NAME).build();
+    }
+    @Bean
+    DirectExchange AliPayDeadExchange() {
+        return new DirectExchange(MqConstant.ORDERS_DEAD_EXCHANGE_NAME);
+    }
+    @Bean
+    Binding AliPayDeadBinding(Queue AliPayDeadQueue, DirectExchange AliPayDeadExchange) {
+        return BindingBuilder.bind(AliPayDeadQueue).to(AliPayDeadExchange).with(MqConstant.ORDERS_DEAD_ROUTING_KEY);
+    }
+    /**
+     * 将队列和交换机声明
+     */
+    @Bean
+    Queue AliPayQueue(){
+        //信息参数 设置TTL为1min
+        Map<String,Object> arg = new HashMap<>();
+        arg.put("x-message-ttl",1000*5*60);
+        //绑定死信交换机
+        arg.put("x-dead-letter-exchange",MqConstant.ORDERS_DEAD_EXCHANGE_NAME);
+        arg.put("x-dead-letter-routing-key",MqConstant.ORDERS_DEAD_ROUTING_KEY);
+        return QueueBuilder.durable(MqConstant.ORDERS_QUEUE_NAME).withArguments(arg).build();
+    }
+    @Bean
+    DirectExchange AliPayExchange() {
+        return new DirectExchange(MqConstant.ORDERS_EXCHANGE_NAME);
+    }
+    @Bean
+    Binding AliPayBinding(Queue AliPayQueue, DirectExchange AliPayExchange) {
+        return BindingBuilder.bind(AliPayQueue).to(AliPayExchange).with(MqConstant.ORDERS_ROUTING_KEY);
+    }
+}
+
+死信队列用于记录订单失效后，消费者队列在回调接口中实现，保证支付成功后信息被消费
+订单消费者
+  @SneakyThrows
+    @RabbitListener(queues = {MqConstant.ORDERS_QUEUE_NAME})
+    public void receiveMessage(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag){
+        log.warn("接收到队列信息，receiveMessage={}=======================================",message);
+        if (StringUtils.isBlank(message)){
+            //消息为空，消息拒绝，不重复发送，不重新放入队列
+            channel.basicNack(deliveryTag,false,false);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"消息为空");
+        }
+        long orderId = Long.parseLong(message);
+        Orders order = ordersService.getById(orderId);
+        if (order == null){
+            channel.basicNack(deliveryTag,false,false);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"订单为空");
+        }
+        //查询订单信息看是完成支付，未支付则重新放入队列中直至过期
+        String tradeStatus = order.getTradeStatus();
+        log.warn("订单查询为"+order.getTradeStatus());
+        if (!tradeStatus.equals(OrdersConstant.SUCCEED)){
+            log.warn("订单未支付成功,重新放回队列,订单号为"+order.getId());
+            channel.basicNack(deliveryTag,false,true);
+        }else {
+            //消息确认
+            channel.basicAck(deliveryTag,false);
+        }
+    }
+注意
+rabbitmq的重发机制不能在try-catch中使用，否则会不生效，因为catch也会算一次确定消息。

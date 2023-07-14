@@ -16,9 +16,11 @@ import com.yupi.springbootinit.model.dto.user.UserQueryRequest;
 import com.yupi.springbootinit.model.dto.user.UserRegisterRequest;
 import com.yupi.springbootinit.model.dto.user.UserUpdateMyRequest;
 import com.yupi.springbootinit.model.dto.user.UserUpdateRequest;
+import com.yupi.springbootinit.model.entity.Credit;
 import com.yupi.springbootinit.model.entity.User;
 import com.yupi.springbootinit.model.vo.LoginUserVO;
 import com.yupi.springbootinit.model.vo.UserVO;
+import com.yupi.springbootinit.service.CreditService;
 import com.yupi.springbootinit.service.UserService;
 import java.util.List;
 import javax.annotation.Resource;
@@ -54,6 +56,8 @@ public class UserController {
     @Resource
     private WxOpenConfig wxOpenConfig;
 
+    @Resource
+    private CreditService creditService;
     // region 登录相关
 
     /**
@@ -308,4 +312,21 @@ public class UserController {
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         return ResultUtils.success(true);
     }
+
+    /**
+     * 根据 当前登录用户 获取积分总数
+     * @param request
+     * @return
+     */
+    @GetMapping("/get/credit")
+    public BaseResponse<Long> getCreditByUserId(HttpServletRequest request) {
+        User loginUser = userService.getLoginUser(request);
+        Long userId = loginUser.getId();
+        Long creditTotal = creditService.getCreditTotal(userId);
+        if (creditTotal == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        return ResultUtils.success(creditTotal);
+    }
+
 }

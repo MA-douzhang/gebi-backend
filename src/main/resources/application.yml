@@ -1,6 +1,6 @@
 spring:
   application:
-    name: springboot-init
+    name: gebi-backend
   # 默认 dev 环境
   profiles:
     active: dev
@@ -18,17 +18,17 @@ spring:
   # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my_db
+    url: jdbc:mysql://localhost:3306/ge_bi
     username: root
     password: 123456
   # Redis 配置
   # todo 需替换配置，然后取消注释
-#  redis:
-#    database: 1
-#    host: localhost
-#    port: 6379
-#    timeout: 5000
-#    password: 123456
+  redis:
+    database: 4
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000
+  #  password: 123456
   # Elasticsearch 配置
   # todo 需替换配置，然后取消注释
 #  elasticsearch:
@@ -40,9 +40,23 @@ spring:
     multipart:
       # 大小限制
       max-file-size: 10MB
+  rabbitmq:
+    addresses: localhost
+    port: 5672
+    password: guest
+    username: guest
+    listener:
+      direct:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 5000
+          multiplier: 1.5
+          max-interval: 60000
 server:
   address: 0.0.0.0
-  port: 8101
+  port: 9094
   servlet:
     context-path: /api
     # cookie 30 天过期
@@ -87,3 +101,15 @@ cos:
     secretKey: xxx
     region: xxx
     bucket: xxx
+#鱼聪明
+yuapi:
+  client:
+    access-key: ux7bpq5mqr8db3n0dfhd46bunkebr8f3
+    secret-key: eg6zsakkz0av0f6jae3g3cw163nw56hc
+#支付宝支付
+alipay:
+  appId: 9021000122698871
+  appPrivateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCBHgcsrfkv0Nr53utTVrahPROCYrubDm5pplOuP++h3PnDdUNWw+h6l3kB8X6Kl8/tt2OESWC97z8/TnBm7dG/LDVMQ+qLsjBATsRXYzhe/HwYdHxy+x2n3Hn1mVcTdP30U4WspRPBtD/cTQk8Ad/q3DWXbWiX6GWcRB9J+OrB2bu55thxRkFfUsfsYLempc4ClrTgt142nkyTJWf9ZWIFezNkLFRsMH/Gas+vN4Y9dx7mnQIvqS0tdJta6Uc9KBxDggN3qtOhkbh2HxVDzCUVp0cuuTV6jeji7V5f9QEV5NSex3J6yMc2OA9XatkuKeH9lSCXaPSOK7uVpT0/pzIJAgMBAAECggEAQPcp5vo2Si/NLjJSt6EGzUQc39rryE3PkksFCcTTvt6fsQ/8bNivzZcPZMHsyLEwBsziPrpo+cg6S5EdDz0T7xvASXpWtilXC9RWCB49S9XAXtGlmHjvZ/mQR9n6rSiNavTnaoG42hrmkuMUBWRwFQztzh5XpS9iiOjh0Wd0P0qmi8R74LKjposd/fV/PvX+Y3aVznI2MxDXg4ZYEEk2kp6Str7sed6SY1l47u7Ok4ACVqVrdjozveQ6CRdpiYZ+InoEQ3sOcJsypJ9H/vTiKHMhT14I/K9D3be/R/zFjaeteH7y5VMLLnkFFdnXhMw1SyT6669FIvfooeBlaJQB/QKBgQC8toZtGfZ+zl2Z5260NhZaO8bBklCfpmsW4cowxLF3bdtjSSu9umgKLGT/VHfMrlh5g6Kp4T6t5DGBISGHS53PqNmAlR9QzXXpg4p1z5gWKE7G7+JCxzXFZUKz7Hj3AhhA7DH+4oZ5rzyHQN25tMH8LLP+x6JiF0W5xLrxlNYG2wKBgQCvJ6+j72y7BMxPC2Ke7DMGjIo9gFnt/vALJ2qTNK/bcHbZruAsq6hFJIwSqrLzM0n7oDPRJbMEElX90xLzEvoqYBLzRcxcHWQFqnNr6RVId6BMnVduNioS4o5IWqgVxAsYV7mMb4pGH+vMak/P4tXxqwHUzPyzSVeW7jLhtjfl6wKBgQCjRFcw9RFpzCj3Cl+g0lqsXqMqvee6+EQWW+qOHt5bMVRppdiOIUP56UbIENBE6WHqX5TP3OxZjd+2lG9pmmZCTxc+Q8YAJoIpMYENRDmUkfL18nySwb8ntN/swl41dj59jNwEZP9rL8zyR5CNJnHeNt7TQuyeaPwOKMKEV/yDmQKBgHGaIdcH0NOzlvelgL9mnumeeYLOHoW4FeSGGh+DypNe7Bbfz1Hpu+esfpUU1Z/bIh7rlvANrX/0jIVmQyIYqtyVF3VlTdhoz5jFJrtUn5My02sdmblHtB4vhuzyr5X+YtvU+elV5q74wS0BvuYsT2rA6R0mHrgB16dystmmH7clAoGAFDfjBgb2NvjS41fFbBPj32UHwXN4W9R9Nb2E+ERwhr36ztzfIHA871Za497/+jUXOMmsu44Iz3la6wZMKWCweSUJfqeZ7Vfz5gchjHPO17159S0WRd2vpS32QEtzPr8FYYDBpGGQVuwD/VM9E4w16qq10SeMMwZxRsr7rAMuXdc=
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtArMSQwGm+etlaXghRdcgodQc8AaVRbN9oReCP1VID8145qeP238rRFr55kUdnUnUGUlb4bDAsUIZfNHexGM4hceEtv3AETBkm7r/5o5VFi86zWF536rg2GDqDbNIu0apTXIqpSYAqZRlwTCuz0BXrWWe/dd4O0KF/WLLh5Doyrghcu0oVzd6UahZ5IJdOzpmAXuSW+8fNxaddyBtFoIfa+NFc/xbqcCwhjaP4bT8NCfBeYmhYraqdVgM2ljINs8jS+DZkmLnbDvBlIQwt/8irKoSN2aCYc/GzCSPxh7L/dWiGppekQU55K5T6pU9cQDRSKzWMgqxlpF2ak3MjcLxQIDAQAB
+
+
