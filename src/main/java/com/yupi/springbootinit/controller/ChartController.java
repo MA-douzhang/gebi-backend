@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import com.yupi.springbootinit.annotation.AuthCheck;
-import com.yupi.springbootinit.bimq.BiMessageProducer;
+import com.yupi.springbootinit.mq.common.MqMessageProducer;
 import com.yupi.springbootinit.common.BaseResponse;
 import com.yupi.springbootinit.common.DeleteRequest;
 import com.yupi.springbootinit.common.ErrorCode;
@@ -44,10 +44,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * 帖子接口
+ * 图表分析接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/chart")
@@ -70,7 +68,7 @@ public class ChartController {
     ThreadPoolExecutor threadPoolExecutor;
 
     @Resource
-    private BiMessageProducer biMessageProducer;
+    private MqMessageProducer mqMessageProducer;
     private final static Gson GSON = new Gson();
 
     // region 增删改查
@@ -508,7 +506,7 @@ public class ChartController {
         ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"图表保存失败");
         Long chartId = chart.getId();
         log.warn("准备发送信息给队列，Message={}=======================================",chartId);
-        biMessageProducer.sendMessage(MqConstant.BI_EXCHANGE_NAME,MqConstant.BI_ROUTING_KEY,String.valueOf(chartId));
+        mqMessageProducer.sendMessage(MqConstant.BI_EXCHANGE_NAME,MqConstant.BI_ROUTING_KEY,String.valueOf(chartId));
         //返回数据参数
         AiChartResponse aiChartResponse = new AiChartResponse();
         aiChartResponse.setChartId(chart.getId());
@@ -550,7 +548,7 @@ public class ChartController {
         boolean saveResult = chartService.updateById(chart);
         ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"图表保存失败");
         log.warn("准备发送信息给队列，Message={}=======================================",chartId);
-        biMessageProducer.sendMessage(MqConstant.BI_EXCHANGE_NAME,MqConstant.BI_ROUTING_KEY,String.valueOf(chartId));
+        mqMessageProducer.sendMessage(MqConstant.BI_EXCHANGE_NAME,MqConstant.BI_ROUTING_KEY,String.valueOf(chartId));
         //返回数据参数
         AiChartResponse aiChartResponse = new AiChartResponse();
         aiChartResponse.setChartId(chart.getId());

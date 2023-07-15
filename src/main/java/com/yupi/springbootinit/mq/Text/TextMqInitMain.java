@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.bimq;
+package com.yupi.springbootinit.mq.Text;
 
 import com.yupi.springbootinit.constant.MqConstant;
 import org.springframework.amqp.core.*;

@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.bimq;
+package com.yupi.springbootinit.mq.Bi;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.json.JSONUtil;
@@ -10,7 +10,6 @@ import com.yupi.springbootinit.exception.BusinessException;
 import com.yupi.springbootinit.manager.AiManager;
 import com.yupi.springbootinit.model.entity.Chart;
 import com.yupi.springbootinit.service.ChartService;
-import com.yupi.springbootinit.utils.ExcelUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -22,6 +21,9 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.HashMap;
 
+/**
+ * 图表分析消费者队列
+ */
 @Component
 @Slf4j
 public class BiMessageConsumer {

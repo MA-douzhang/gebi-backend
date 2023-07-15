@@ -1,13 +1,10 @@
-package com.yupi.springbootinit.bimq;
+package com.yupi.springbootinit.mq.Alipay;
 
-import cn.hutool.core.date.DateTime;
-import cn.hutool.json.JSONUtil;
 import com.rabbitmq.client.Channel;
 import com.yupi.springbootinit.common.ErrorCode;
 import com.yupi.springbootinit.constant.OrdersConstant;
 import com.yupi.springbootinit.constant.MqConstant;
 import com.yupi.springbootinit.exception.BusinessException;
-import com.yupi.springbootinit.manager.AiManager;
 import com.yupi.springbootinit.model.entity.Orders;
 
 import com.yupi.springbootinit.service.OrdersService;
@@ -22,7 +19,9 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-
+/**
+ * 阿里支付队列消费者
+ */
 @Component
 @Slf4j
 public class AlipayMessageConsumer {

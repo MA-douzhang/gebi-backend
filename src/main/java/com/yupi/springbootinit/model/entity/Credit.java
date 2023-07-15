@@ -1,25 +1,22 @@
-package com.yupi.springbootinit.model.dto.credit;
+package com.yupi.springbootinit.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.yupi.springbootinit.common.PageRequest;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
 /**
- * 查询请求
- *
+ * 积分表
+ * @TableName credit
  */
-@EqualsAndHashCode(callSuper = true)
+@TableName(value ="credit")
 @Data
-public class CreditQueryRequest extends PageRequest implements Serializable {
-
+public class Credit implements Serializable {
     /**
      * id
      */
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -42,6 +39,12 @@ public class CreditQueryRequest extends PageRequest implements Serializable {
      */
     private Date updateTime;
 
+    /**
+     * 是否删除
+     */
+    @TableLogic
+    private Integer isDelete;
 
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

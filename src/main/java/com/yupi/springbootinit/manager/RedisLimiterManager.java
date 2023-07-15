@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+/**
+ * redis限流控制器
+ */
 @Service
 public class RedisLimiterManager {
 

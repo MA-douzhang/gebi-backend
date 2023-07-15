@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 文件上传请求
+ * 文本生成请求
  *
  */
 @Data

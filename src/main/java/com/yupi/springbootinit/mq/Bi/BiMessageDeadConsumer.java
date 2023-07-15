@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.bimq;
+package com.yupi.springbootinit.mq.Bi;
 
 import com.rabbitmq.client.Channel;
 import com.yupi.springbootinit.common.ErrorCode;
@@ -16,8 +16,10 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 
+/**
+ * 图表分析队列的死信队列
+ */
 @Component
 @Slf4j
 public class BiMessageDeadConsumer {

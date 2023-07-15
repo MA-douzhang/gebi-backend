@@ -5,10 +5,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.yupi.springbootinit.bimq.BiMessageProducer;
+import com.yupi.springbootinit.mq.common.MqMessageProducer;
 import com.yupi.springbootinit.common.ErrorCode;
 import com.yupi.springbootinit.config.AliPayConfig;
 import com.yupi.springbootinit.constant.MqConstant;
@@ -20,7 +17,6 @@ import com.yupi.springbootinit.model.entity.User;
 import com.yupi.springbootinit.service.CreditService;
 import com.yupi.springbootinit.service.OrdersService;
 import com.yupi.springbootinit.service.UserService;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +55,7 @@ public class AliPayController {
     private UserService userService;
 
     @Resource
-    private BiMessageProducer biMessageProducer;
+    private MqMessageProducer mqMessageProducer;
 
 
     @GetMapping("/pay") // &subject=xxx&traceNo=xxx&totalAmount=xxx
@@ -92,7 +88,7 @@ public class AliPayController {
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
-        biMessageProducer.sendMessage(MqConstant.ORDERS_EXCHANGE_NAME,MqConstant.ORDERS_ROUTING_KEY,String.valueOf(orders.getId()));
+        mqMessageProducer.sendMessage(MqConstant.ORDERS_EXCHANGE_NAME,MqConstant.ORDERS_ROUTING_KEY,String.valueOf(orders.getId()));
         httpResponse.setContentType("text/html;charset=" + CHARSET);
         httpResponse.getWriter().write(form);// 直接将完整的表单html输出到页面
         httpResponse.getWriter().flush();

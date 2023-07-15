@@ -17,6 +17,9 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 
+/**
+ * 查看线程池资源类（测试环境）
+ */
 @RestController
 @RequestMapping("/queue")
 @Slf4j

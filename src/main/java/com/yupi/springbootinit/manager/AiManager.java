@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+/**
+ * Ai控制器
+ */
 @Service
 public class AiManager {
     @Resource

@@ -1,9 +1,5 @@
-package com.yupi.springbootinit.bimq;
+package com.yupi.springbootinit.mq.Bi;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import com.yupi.springbootinit.constant.MqConstant;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;

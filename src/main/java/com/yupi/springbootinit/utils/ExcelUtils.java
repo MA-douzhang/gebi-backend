@@ -20,6 +20,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * excel数据读取工具栏
+ */
 @Slf4j
 public class ExcelUtils {
 
@@ -54,7 +57,4 @@ public class ExcelUtils {
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args) {
-        excelToCsv(null);
-    }
 }

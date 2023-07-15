@@ -11,7 +11,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * 读取文本工具栏
+ * 读取文本工具类
  */
 public class TxtUtils {
     public static void main(String[] args) {

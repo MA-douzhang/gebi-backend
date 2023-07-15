@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import com.yupi.springbootinit.annotation.AuthCheck;
-import com.yupi.springbootinit.bimq.BiMessageProducer;
+import com.yupi.springbootinit.mq.common.MqMessageProducer;
 import com.yupi.springbootinit.common.BaseResponse;
 import com.yupi.springbootinit.common.DeleteRequest;
 import com.yupi.springbootinit.common.ErrorCode;
@@ -19,7 +19,6 @@ import com.yupi.springbootinit.model.dto.text.*;
 import com.yupi.springbootinit.model.entity.TextRecord;
 import com.yupi.springbootinit.model.entity.TextTask;
 import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.model.vo.AiChartResponse;
 import com.yupi.springbootinit.model.vo.AiTextResponse;
 import com.yupi.springbootinit.model.vo.TextTaskVO;
 import com.yupi.springbootinit.service.TextRecordService;
@@ -69,7 +68,7 @@ public class TextController {
     ThreadPoolExecutor threadPoolExecutor;
 
     @Resource
-    private BiMessageProducer biMessageProducer;
+    private MqMessageProducer mqMessageProducer;
     private final static Gson GSON = new Gson();
 
     // region 增删改查
@@ -144,6 +143,30 @@ public class TextController {
         return ResultUtils.success(result);
     }
 
+    /**
+     * 更新自己文本
+     *
+     * @param textTaskUpdateRequest
+     * @return
+     */
+    @PostMapping("/my/update")
+    public BaseResponse<Boolean> updateMyTextTask(@RequestBody TextUpdateRequest textTaskUpdateRequest,HttpServletRequest request) {
+        if (textTaskUpdateRequest == null || textTaskUpdateRequest.getId() <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        TextTask textTask = new TextTask();
+        BeanUtils.copyProperties(textTaskUpdateRequest, textTask);
+        long id = textTaskUpdateRequest.getId();
+        // 判断是否存在
+        TextTask oldTextTask = textTaskService.getById(id);
+        ThrowUtils.throwIf(oldTextTask == null, ErrorCode.NOT_FOUND_ERROR);
+
+        //判断为自己的文本
+        ThrowUtils.throwIf(!loginUser.getId().equals(oldTextTask.getUserId()),ErrorCode.OPERATION_ERROR);
+        boolean result = textTaskService.updateById(textTask);
+        return ResultUtils.success(result);
+    }
     /**
      * 根据 id 获取
      *
@@ -442,65 +465,50 @@ public class TextController {
 
         log.warn("准备发送信息给队列，Message={}=======================================",taskId);
         //todo 修改队列
-        biMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(taskId));
+        mqMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(taskId));
         //返回数据参数
         AiTextResponse aiResponse = new AiTextResponse();
         aiResponse.setId(textTask.getId());
         return ResultUtils.success(aiResponse);
 
     }
-//
-//    /**
-//     * 图表重新生成(mq)
-//     *
-//     * @param textTaskRebuildRequest
-//     * @param request
-//     * @return
-//     */
-//    @PostMapping("/gen/async/rebuild")
-//    public BaseResponse<AiResponse> genTextTaskAsyncAiRebuild(TextTaskRebuildRequest textTaskRebuildRequest, HttpServletRequest request) {
-//        Long textTaskId = textTaskRebuildRequest.getId();
-//        TextTask genTextTaskByAiRequest = textTaskService.getById(textTaskId);
-//        String textTaskType = genTextTaskByAiRequest.getChatType();
-//        String goal = genTextTaskByAiRequest.getGoal();
-//        String name = genTextTaskByAiRequest.getName();
-//        String textTaskData = genTextTaskByAiRequest.getTextTaskData();
-//
-//        //校验
-//        ThrowUtils.throwIf(StringUtils.isBlank(goal),ErrorCode.PARAMS_ERROR,"目标为空");
-//        ThrowUtils.throwIf(StringUtils.isNotBlank(name)&&name.length()>=100,ErrorCode.PARAMS_ERROR,"名称过长");
-//        ThrowUtils.throwIf(StringUtils.isBlank(textTaskData),ErrorCode.PARAMS_ERROR,"表格数据为空");
-//        ThrowUtils.throwIf(StringUtils.isBlank(textTaskType),ErrorCode.PARAMS_ERROR,"生成表格类型为空");
-//
-//        User loginUser = userService.getLoginUser(request);
-//        //限流
-//        redisLimiterManager.doRateLimit("doRateLimit_" + loginUser.getId());
-//
-//        //保存数据库 wait
-//        TextTask textTask = new TextTask();
-//        textTask.setStatus(TextConstant.WAIT);
-//        textTask.setId(textTaskId);
-//        boolean saveResult = textTaskService.updateById(textTask);
-//        ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"图表保存失败");
-//        log.warn("准备发送信息给队列，Message={}=======================================",textTaskId);
-//        biMessageProducer.sendMessage(MqConstant.BI_EXCHANGE_NAME,MqConstant.BI_ROUTING_KEY,String.valueOf(textTaskId));
-//        //返回数据参数
-//        AiResponse aiResponse = new AiResponse();
-//        aiResponse.setTextTaskId(textTask.getId());
-//        return ResultUtils.success(aiResponse);
-//
-//    }
 
-    private void handleTextTaskUpdateError(Long textTaskId, String execMessage) {
-        TextTask updateTextTaskResult = new TextTask();
-        updateTextTaskResult.setStatus(TextConstant.FAILED);
-        updateTextTaskResult.setId(textTaskId);
-        updateTextTaskResult.setExecMessage(execMessage);
-        boolean updateResult = textTaskService.updateById(updateTextTaskResult);
-        if (!updateResult){
-            log.error("更新图片失败状态失败"+textTaskId+","+execMessage);
-        }
+    /**
+     * 文本重新生成(mq)
+     *
+     * @param textRebuildRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/gen/async/rebuild")
+    public BaseResponse<AiTextResponse> genTextTaskAsyncAiRebuild(TextRebuildRequest textRebuildRequest, HttpServletRequest request) {
+        Long textTaskId = textRebuildRequest.getId();
+        //获取记录表
+        List<TextRecord> recordList = textRecordService.list(new QueryWrapper<TextRecord>().eq("textTaskId", textTaskId));
+        //校验，查看原始文本是否为空
+        recordList.forEach(textRecord -> {
+            ThrowUtils.throwIf(StringUtils.isBlank(textRecord.getTextContent()),ErrorCode.PARAMS_ERROR,"文本为空");
+        });
+
+        User loginUser = userService.getLoginUser(request);
+        //限流
+        redisLimiterManager.doRateLimit("doRateLimit_" + loginUser.getId());
+
+        //保存数据库 wait
+        TextTask textTask = new TextTask();
+        textTask.setStatus(TextConstant.WAIT);
+        textTask.setId(textTaskId);
+        boolean saveResult = textTaskService.updateById(textTask);
+        ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"文本保存失败");
+        log.warn("准备发送信息给队列，Message={}=======================================",textTaskId);
+        mqMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(textTaskId));
+        //返回数据参数
+        AiTextResponse aiResponse = new AiTextResponse();
+        aiResponse.setId(textTask.getId());
+        return ResultUtils.success(aiResponse);
+
     }
+
     private String buildUserInput(TextRecord textRecord,String textTaskType){
         String textContent = textRecord.getTextContent();
         //构造用户输入
