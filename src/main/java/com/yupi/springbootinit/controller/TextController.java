@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import com.yupi.springbootinit.annotation.AuthCheck;
+import com.yupi.springbootinit.model.vo.AiResponse;
 import com.yupi.springbootinit.mq.common.MqMessageProducer;
 import com.yupi.springbootinit.common.BaseResponse;
 import com.yupi.springbootinit.common.DeleteRequest;
@@ -19,7 +20,6 @@ import com.yupi.springbootinit.model.dto.text.*;
 import com.yupi.springbootinit.model.entity.TextRecord;
 import com.yupi.springbootinit.model.entity.TextTask;
 import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.model.vo.AiTextResponse;
 import com.yupi.springbootinit.model.vo.TextTaskVO;
 import com.yupi.springbootinit.service.TextRecordService;
 import com.yupi.springbootinit.service.TextTaskService;
@@ -308,7 +308,7 @@ public class TextController {
      * @return
      */
     @PostMapping("/gen")
-    public BaseResponse<AiTextResponse> genTextTaskAi(@RequestPart("file") MultipartFile multipartFile,
+    public BaseResponse<AiResponse> genTextTaskAi(@RequestPart("file") MultipartFile multipartFile,
                                                   GenTextTaskByAiRequest genTextTaskByAiRequest, HttpServletRequest request) {
 
         String textTaskType = genTextTaskByAiRequest.getTextType();
@@ -389,8 +389,8 @@ public class TextController {
         textTask1.setStatus(TextConstant.SUCCEED);
         boolean save = textTaskService.updateById(textTask1);
         ThrowUtils.throwIf(!save,ErrorCode.SYSTEM_ERROR,"ai返回文本任务保存失败");
-        AiTextResponse aiResponse = new AiTextResponse();
-        aiResponse.setId(textTask.getId());
+        AiResponse aiResponse = new AiResponse();
+        aiResponse.setResultId(textTask.getId());
         return ResultUtils.success(aiResponse);
 
     }
@@ -404,7 +404,7 @@ public class TextController {
      * @return
      */
     @PostMapping("/gen/async/mq")
-    public BaseResponse<AiTextResponse> genTextTaskAsyncAiMq(@RequestPart("file") MultipartFile multipartFile,
+    public BaseResponse<AiResponse> genTextTaskAsyncAiMq(@RequestPart("file") MultipartFile multipartFile,
                                                               GenTextTaskByAiRequest genTextTaskByAiRequest, HttpServletRequest request) {
 
         String textTaskType = genTextTaskByAiRequest.getTextType();
@@ -417,6 +417,7 @@ public class TextController {
         String originalFilename = multipartFile.getOriginalFilename();
         final long ONE_MB = 1024*1024;
         ThrowUtils.throwIf(size>ONE_MB,ErrorCode.PARAMS_ERROR,"文件超过1MB");
+        ThrowUtils.throwIf(size==0,ErrorCode.PARAMS_ERROR,"文件为空");
         //校验文件后缀
         String suffix = FileUtil.getSuffix(originalFilename);
         final List<String> validFileSuffix = Arrays.asList("txt");
@@ -464,11 +465,10 @@ public class TextController {
 
 
         log.warn("准备发送信息给队列，Message={}=======================================",taskId);
-        //todo 修改队列
         mqMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(taskId));
         //返回数据参数
-        AiTextResponse aiResponse = new AiTextResponse();
-        aiResponse.setId(textTask.getId());
+        AiResponse aiResponse = new AiResponse();
+        aiResponse.setResultId(textTask.getId());
         return ResultUtils.success(aiResponse);
 
     }
@@ -481,7 +481,7 @@ public class TextController {
      * @return
      */
     @PostMapping("/gen/async/rebuild")
-    public BaseResponse<AiTextResponse> genTextTaskAsyncAiRebuild(TextRebuildRequest textRebuildRequest, HttpServletRequest request) {
+    public BaseResponse<AiResponse> genTextTaskAsyncAiRebuild(TextRebuildRequest textRebuildRequest, HttpServletRequest request) {
         Long textTaskId = textRebuildRequest.getId();
         //获取记录表
         List<TextRecord> recordList = textRecordService.list(new QueryWrapper<TextRecord>().eq("textTaskId", textTaskId));
@@ -503,8 +503,8 @@ public class TextController {
         log.warn("准备发送信息给队列，Message={}=======================================",textTaskId);
         mqMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(textTaskId));
         //返回数据参数
-        AiTextResponse aiResponse = new AiTextResponse();
-        aiResponse.setId(textTask.getId());
+        AiResponse aiResponse = new AiResponse();
+        aiResponse.setResultId(textTask.getId());
         return ResultUtils.success(aiResponse);
 
     }

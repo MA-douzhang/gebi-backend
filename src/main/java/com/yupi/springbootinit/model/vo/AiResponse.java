@@ -3,10 +3,10 @@ package com.yupi.springbootinit.model.vo;
 import lombok.Data;
 
 @Data
-public class AiTextResponse {
+public class AiResponse {
 
     /**
-     * 文本id
+     * 返回结果id
      */
-    private Long id;
+    private Long resultId;
 }

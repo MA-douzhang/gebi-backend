@@ -62,57 +62,25 @@ public class BiMessageConsumer {
         //调用AI
         String result = null;
         try {
-            result = aiManager.doChat(buildUserInput(chart).toString(), ChartConstant.MODE_ID);
+            result = aiManager.doChat(chartService.buildUserInput(chart).toString(), ChartConstant.MODE_ID);
         } catch (Exception e) {
             channel.basicNack(deliveryTag,false,true);
             log.warn("信息放入队列{}", DateTime.now());
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"AI 服务错误");
         }
-        String[] splits = result.split("【【【【【");
-        if (splits.length < 3){
-            log.warn("AI生成错误，重新放入队列");
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"AI 生成错误");
-        }
-        //todo 可以使用正则表达式保证数据准确性，防止中文出现
-        String genChart= splits[1].trim();
-        String genResult = splits[2].trim();
-        //将非js格式转化为js格式
+        //处理返回的数据
         try {
-            HashMap<String,Object> genChartJson = JSONUtil.toBean(genChart, HashMap.class);
-            genChart = JSONUtil.toJsonStr(genChartJson);
+            boolean saveResult = chartService.saveChartAiResult(result, chart.getId());
+            if (!saveResult){
+                chartService.handleChartUpdateError(chart.getId(), "图表数据保存失败");
+            }
         } catch (Exception e) {
-            log.warn("AI生成错误，重新放入队列");
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"AI生成图片错误");
-        }
-        Chart updateChartResult = new Chart();
-        updateChartResult.setId(chart.getId());
-        updateChartResult.setStatus(ChartConstant.SUCCEED);
-        updateChartResult.setGenChat(genChart);
-        updateChartResult.setGenResult(genResult);
-        updateResult = chartService.updateById(updateChartResult);
-        if (!updateResult){
-            handleChartUpdateError(chart.getId(), "更新图片成功状态失败");
+            //重新放回队列
+            channel.basicNack(deliveryTag,false,true);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"图表数据保存失败");
         }
         //消息确认
         channel.basicAck(deliveryTag,false);
-    }
-    private String buildUserInput(Chart chart){
-        String goal = chart.getGoal();
-        String chatType = chart.getChatType();
-        String csvData = chart.getChartData();
-        //构造用户输入
-        StringBuilder userInput = new StringBuilder();
-        userInput.append("分析需求：").append("\n");
-
-        // 拼接分析目标
-        String userGoal = goal;
-        if (StringUtils.isNotBlank(chatType)) {
-            userGoal += "，请使用" + chatType;
-        }
-        userInput.append(userGoal).append("\n");
-        userInput.append("原始数据：").append("\n");
-        userInput.append(csvData).append("\n");
-        return userInput.toString();
     }
     private void handleChartUpdateError(Long chartId, String execMessage) {
         Chart updateChartResult = new Chart();
