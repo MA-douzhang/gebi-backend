@@ -63,7 +63,7 @@ public class TextMessageConsumer {
         updateTask.setStatus(TextConstant.RUNNING);
         boolean updateResult = textTaskService.updateById(updateTask);
         if (!updateResult){
-            handleTextTaskUpdateError(textTaskId,"更新图表执行状态失败");
+            textTaskService.handleTextTaskUpdateError(textTaskId,"更新图表执行状态失败");
             return;
         }
         //调用AI
@@ -73,7 +73,7 @@ public class TextMessageConsumer {
             //队列重新消费时，不在重新生成已经生成过的数据
             if (textRecord.getGenTextContent() != null) continue;
             try {
-                result = aiManager.doChat(buildUserInput(textRecord,textTask.getTextType()).toString(), TextConstant.MODE_ID);
+                result = aiManager.doChat(textRecordService.buildUserInput(textRecord,textTask.getTextType()).toString(), TextConstant.MODE_ID);
             } catch (Exception e) {
                 channel.basicNack(deliveryTag,false,true);
                 log.warn("信息放入队列{}", DateTime.now());
@@ -88,7 +88,6 @@ public class TextMessageConsumer {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR,"保存失败");
             }
         }
-
         //将记录表中已经生成好的内容合并存入任务表
         StringBuilder stringBuilder = new StringBuilder();
         textRecordList.forEach(textRecord1 -> {
@@ -100,7 +99,8 @@ public class TextMessageConsumer {
         textTask1.setStatus(TextConstant.SUCCEED);
         boolean save = textTaskService.updateById(textTask1);
         if (!save){
-            handleTextTaskUpdateError(textTask.getId(), "ai返回文本任务保存失败");
+            channel.basicNack(deliveryTag,false,true);
+            textTaskService.handleTextTaskUpdateError(textTask.getId(), "ai返回文本任务保存失败");
         }
 
         //消息确认
@@ -108,28 +108,4 @@ public class TextMessageConsumer {
     }
 
 
-    private void handleTextTaskUpdateError(Long textTaskId, String execMessage) {
-        TextTask updateTextTaskResult = new TextTask();
-        updateTextTaskResult.setStatus(TextConstant.FAILED);
-        updateTextTaskResult.setId(textTaskId);
-        updateTextTaskResult.setExecMessage(execMessage);
-        boolean updateResult = textTaskService.updateById(updateTextTaskResult);
-        if (!updateResult){
-            log.error("更新文本失败状态失败"+textTaskId+","+execMessage);
-        }
-    }
-    private String buildUserInput(TextRecord textRecord,String textTaskType){
-        String textContent = textRecord.getTextContent();
-        //构造用户输入
-        StringBuilder userInput = new StringBuilder();
-        String gold = "请使用"+textTaskType+"语法对下面文章格式化";
-
-        userInput.append(gold).append("\n");
-
-        if (StringUtils.isNotBlank(textContent)) {
-            textContent = textContent.trim();
-            userInput.append(textContent);
-        }
-        return userInput.toString();
-    }
 }

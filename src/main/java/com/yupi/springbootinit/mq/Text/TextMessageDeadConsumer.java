@@ -51,20 +51,10 @@ public class TextMessageDeadConsumer {
         boolean updateResult = textTaskService.updateById(updateTextTask);
         //这里不对记录表状态修改，记录只能内部使用
         if (!updateResult){
-            handleTextTaskUpdateError(updateTextTask.getId(),"更新图表执行状态失败");
+            textTaskService.handleTextTaskUpdateError(updateTextTask.getId(),"更新图表执行状态失败");
             return;
         }
         //消息确认
         channel.basicAck(deliveryTag,false);
-    }
-    private void handleTextTaskUpdateError(Long chartId, String execMessage) {
-        TextTask updateTextTaskResult = new TextTask();
-        updateTextTaskResult.setStatus(TextConstant.FAILED);
-        updateTextTaskResult.setId(chartId);
-        updateTextTaskResult.setExecMessage(execMessage);
-        boolean updateResult = textTaskService.updateById(updateTextTaskResult);
-        if (!updateResult){
-            log.error("更新图片失败状态失败"+chartId+","+execMessage);
-        }
     }
 }

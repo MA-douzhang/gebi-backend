@@ -311,54 +311,16 @@ public class TextController {
     public BaseResponse<AiResponse> genTextTaskAi(@RequestPart("file") MultipartFile multipartFile,
                                                   GenTextTaskByAiRequest genTextTaskByAiRequest, HttpServletRequest request) {
 
-        String textTaskType = genTextTaskByAiRequest.getTextType();
-        String name = genTextTaskByAiRequest.getName();
-        //校验
-        ThrowUtils.throwIf(StringUtils.isBlank(textTaskType),ErrorCode.PARAMS_ERROR,"目标类型为空");
-        ThrowUtils.throwIf(StringUtils.isNotBlank(name)&&name.length()>=100,ErrorCode.PARAMS_ERROR,"名称过长");
-        //校验文件
-        long size = multipartFile.getSize();
-        String originalFilename = multipartFile.getOriginalFilename();
-        final long ONE_MB = 1024*1024;
-        ThrowUtils.throwIf(size>ONE_MB,ErrorCode.PARAMS_ERROR,"文件超过1MB");
-        //校验文件后缀
-        String suffix = FileUtil.getSuffix(originalFilename);
-        final List<String> validFileSuffix = Arrays.asList("txt");
-        ThrowUtils.throwIf(!validFileSuffix.contains(suffix),ErrorCode.PARAMS_ERROR,"文件后缀名非法");
-
         User loginUser = userService.getLoginUser(request);
         //限流
         redisLimiterManager.doRateLimit("doRateLimit_" + loginUser.getId());
+        //获取文本任务并校验
+        TextTask textTask = textTaskService.getTextTask(multipartFile, genTextTaskByAiRequest, loginUser);
 
-        // 压缩后的数据
-        ArrayList<String> textContentList = TxtUtils.readerFile(multipartFile);
-        ThrowUtils.throwIf(textContentList.size() ==0,ErrorCode.PARAMS_ERROR,"文件为空");
-
-        //保存任务进数据库
-        TextTask textTask = new TextTask();
-        textTask.setTextType(textTaskType);
-        textTask.setName(name);
-        textTask.setUserId(loginUser.getId());
-        textTask.setStatus(TextConstant.WAIT);
-        boolean saveResult = textTaskService.save(textTask);
-        ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"文本任务保存失败");
         //获取任务id
         Long taskId = textTask.getId();
 
-
-        //将分割的内容保存入记录表
-        ArrayList<TextRecord> taskArrayList = new ArrayList<>();
-        textContentList.forEach(textContent ->{
-            TextRecord textRecord = new TextRecord();
-            textRecord.setTextTaskId(taskId);
-            textRecord.setTextContent(textContent);
-            textRecord.setStatus(TextConstant.WAIT);
-            taskArrayList.add(textRecord);
-        });
-
-        boolean batchResult = textRecordService.saveBatch(taskArrayList);
-        ThrowUtils.throwIf(!batchResult,ErrorCode.SYSTEM_ERROR,"文本记录保存失败");
-
+        String textType = textTask.getTextType();
         //从根据任务id记录表中获取数据
         QueryWrapper<TextRecord> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("textTaskId",taskId);
@@ -367,7 +329,7 @@ public class TextController {
         //将文本依次交给ai处理
         for (TextRecord textRecord : textRecords) {
             String result = null;
-            result = aiManager.doChat(buildUserInput(textRecord,textTaskType).toString(), TextConstant.MODE_ID);
+            result = aiManager.doChat(textRecordService.buildUserInput(textRecord,textType).toString(), TextConstant.MODE_ID);
             textRecord.setGenTextContent(result);
             textRecord.setStatus(TextConstant.SUCCEED);
             boolean updateById = textRecordService.updateById(textRecord);
@@ -407,62 +369,15 @@ public class TextController {
     public BaseResponse<AiResponse> genTextTaskAsyncAiMq(@RequestPart("file") MultipartFile multipartFile,
                                                               GenTextTaskByAiRequest genTextTaskByAiRequest, HttpServletRequest request) {
 
-        String textTaskType = genTextTaskByAiRequest.getTextType();
-        String name = genTextTaskByAiRequest.getName();
-        //校验
-        ThrowUtils.throwIf(StringUtils.isBlank(textTaskType),ErrorCode.PARAMS_ERROR,"目标为空");
-        ThrowUtils.throwIf(StringUtils.isNotBlank(name)&&name.length()>=100,ErrorCode.PARAMS_ERROR,"名称过长");
-        //校验文件
-        long size = multipartFile.getSize();
-        String originalFilename = multipartFile.getOriginalFilename();
-        final long ONE_MB = 1024*1024;
-        ThrowUtils.throwIf(size>ONE_MB,ErrorCode.PARAMS_ERROR,"文件超过1MB");
-        ThrowUtils.throwIf(size==0,ErrorCode.PARAMS_ERROR,"文件为空");
-        //校验文件后缀
-        String suffix = FileUtil.getSuffix(originalFilename);
-        final List<String> validFileSuffix = Arrays.asList("txt");
-        ThrowUtils.throwIf(!validFileSuffix.contains(suffix),ErrorCode.PARAMS_ERROR,"文件后缀名非法");
 
         User loginUser = userService.getLoginUser(request);
         //限流
         redisLimiterManager.doRateLimit("doRateLimit_" + loginUser.getId());
-        //todo 可以抽象成业务放入service中使用事务方法保证积分和表格一同生成或失败
+        //获取文本任务并校验
+        TextTask textTask = textTaskService.getTextTask(multipartFile, genTextTaskByAiRequest, loginUser);
 
-        // 压缩后的数据
-        ArrayList<String> textContentList = TxtUtils.readerFile(multipartFile);
-        ThrowUtils.throwIf(textContentList.size() ==0,ErrorCode.PARAMS_ERROR,"文件为空");
-
-        //消耗积分
-        Boolean creditResult = creditService.updateCredits(loginUser.getId(), CreditConstant.CREDIT_CHART_SUCCESS);
-        ThrowUtils.throwIf(!creditResult,ErrorCode.OPERATION_ERROR,"你的积分不足");
-
-
-        //保存数据库 wait
-        //保存任务进数据库
-        TextTask textTask = new TextTask();
-        textTask.setTextType(textTaskType);
-        textTask.setName(name);
-        textTask.setUserId(loginUser.getId());
-        textTask.setStatus(TextConstant.WAIT);
-        boolean saveResult = textTaskService.save(textTask);
-        ThrowUtils.throwIf(!saveResult,ErrorCode.SYSTEM_ERROR,"文本任务保存失败");
         //获取任务id
         Long taskId = textTask.getId();
-        //保存记录进数据库
-        ArrayList<TextRecord> taskArrayList = new ArrayList<>();
-        textContentList.forEach(textContent ->{
-            TextRecord textRecord = new TextRecord();
-            textRecord.setTextTaskId(taskId);
-            textRecord.setTextContent(textContent);
-            textRecord.setStatus(TextConstant.WAIT);
-            taskArrayList.add(textRecord);
-        });
-
-        boolean batchResult = textRecordService.saveBatch(taskArrayList);
-        ThrowUtils.throwIf(!batchResult,ErrorCode.SYSTEM_ERROR,"文本记录保存失败");
-
-        //
-
 
         log.warn("准备发送信息给队列，Message={}=======================================",taskId);
         mqMessageProducer.sendMessage(MqConstant.TEXT_EXCHANGE_NAME,MqConstant.TEXT_ROUTING_KEY,String.valueOf(taskId));
@@ -507,20 +422,5 @@ public class TextController {
         aiResponse.setResultId(textTask.getId());
         return ResultUtils.success(aiResponse);
 
-    }
-
-    private String buildUserInput(TextRecord textRecord,String textTaskType){
-        String textContent = textRecord.getTextContent();
-        //构造用户输入
-        StringBuilder userInput = new StringBuilder();
-        String gold = "请使用"+textTaskType+"语法对下面文章格式化";
-
-        userInput.append(gold).append("\n");
-
-        if (StringUtils.isNotBlank(textContent)) {
-            textContent = textContent.trim();
-            userInput.append(textContent);
-        }
-        return userInput.toString();
     }
 }
