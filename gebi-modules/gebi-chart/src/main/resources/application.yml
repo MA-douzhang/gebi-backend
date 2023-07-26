@@ -1,0 +1,31 @@
+server:
+  port: 9095
+  servlet:
+    context-path: /chartApi
+spring:
+  application:
+    name: gebi-chart-9095
+  cloud:
+    nacos:
+      server-addr: 192.168.1.3:8848 #注册中心
+dubbo:
+  application:
+    name: dubbo-chart
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://192.168.1.3:8848
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    show-extensions: true
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.madou.chart
+  default-flat-param-object: false

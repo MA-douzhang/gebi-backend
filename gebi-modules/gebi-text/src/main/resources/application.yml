@@ -1,0 +1,33 @@
+server:
+  port: 9096
+  servlet:
+    context-path: /textApi
+
+spring:
+  application:
+    name: gebi-text-9096
+  cloud:
+    nacos:
+      server-addr: 192.168.1.3:8848 #注册中心
+
+dubbo:
+  application:
+    name: dubbo-text
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://192.168.1.3:8848
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    show-extensions: true
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.madou.text
+  default-flat-param-object: false

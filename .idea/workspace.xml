@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/service/ChartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/GeBiGatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/ChartMainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/controller/ChartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/service/impl/ChartServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/service/ServiceMainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/service/controller/ServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/controller/TextController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-modules/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../apache-maven-3.8.5/apache-maven-3.8.5" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2T3gxyKQtBkwxbCkYNVpYstG00i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/项目开发/GeBI/cloud/gebi-cloud/gebi-common/gebi-common-doc/src/main/resources/METE-INF.spring",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "66240f9d3ef95e7526b311829ced08c2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.madou.chart.service.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-doc\src\main\resources\METE-INF.spring" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-doc\src\main\java\com\madou\common\doc" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-doc\src\main\resources" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-gateway\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.madou.text" />
+      <recent name="com.madou.chart.controller" />
+      <recent name="com.madou.chart.api.service" />
+      <recent name="com.madou.service.controller.service" />
+      <recent name="com.madou.gateway" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.gateway-8099">
+    <configuration name="ChartMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="gebi-chart" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.madou.chart.ChartMainApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.madou.chart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gebi-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.madou.service.ServiceMainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gebi-text" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.madou.text.TextMainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gateway-8099" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="gebi-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.madou.gateway.GeBiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ChartMainApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="" />
+      <created>1690277429822</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690277429822</updated>
+      <workItem from="1690277431494" duration="3475000" />
+      <workItem from="1690287553688" duration="9195000" />
+      <workItem from="1690357323199" duration="9794000" />
+      <workItem from="1690375781530" duration="5890000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

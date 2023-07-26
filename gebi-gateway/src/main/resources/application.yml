@@ -1,0 +1,39 @@
+server:
+  port: 8099
+spring:
+  application:
+    name: gebi-gateway-8099
+  cloud:
+    nacos:
+      server-addr: 192.168.1.3:8848 #注册中心
+    gateway:
+      routes:
+        - id: gebi-service-9094 #用户服务
+          uri: lb://gebi-service-9094
+          predicates:
+            - Path=/serviceApi/**
+        - id: gebi-chart-9095 #图表分析服务
+          uri: lb://gebi-chart-9095
+          predicates:
+            - Path=/chartApi/**
+        - id: gebi-text-9096 #文本转换服务
+          uri: lb://gebi-text-9096
+          predicates:
+            - Path=/textApi/**
+knife4j:
+  gateway:
+    enabled: true
+    strategy: manual
+    routes:
+      - name: 用户服务
+        url: /serviceApi/v3/api-docs?group=default
+        order: 1
+        context-path: /serviceApi #添加请求前缀
+      - name: 文本服务
+        url: /textApi/v3/api-docs?group=default
+        order: 1
+        context-path: /textApi
+      - name: 图表服务
+        url: /chartApi/v3/api-docs?group=default
+        order: 1
+        context-path: /chartApi
