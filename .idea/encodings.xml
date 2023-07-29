@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-ai-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-ai-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-doc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-doc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-dubbo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-dubbo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-satoken/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-satoken/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-gateway/src/main/java" charset="UTF-8" />

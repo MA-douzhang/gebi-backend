@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>gebi-chart-api</module>
+        <module>gebi-user-api</module>
+        <module>gebi-text-api</module>
     </modules>
 
     <properties>

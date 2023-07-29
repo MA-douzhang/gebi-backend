@@ -33,6 +33,7 @@
         <redisson.version>3.18.0</redisson.version>
         <lombok.version>1.18.24</lombok.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <satoken.version>1.33.0</satoken.version>
         <knife4j.version>4.1.0</knife4j.version>
         <dynamic-ds.version>3.5.2</dynamic-ds.version>
         <easy-es.version>1.1.0</easy-es.version>
@@ -70,13 +71,6 @@
                 <version>${hutool.version}</version>
             </dependency>
             <!--            alibaba-->
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>${dubbo.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -153,6 +147,35 @@
                 <artifactId>easyexcel</artifactId>
                 <version>${easy.version}</version>
             </dependency>
+            <!-- Sa-Token -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-core</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-context-dubbo</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-dao-redis-jackson</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <!-- 提供Redis连接池 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+            </dependency>
+
         </dependencies>
+
     </dependencyManagement>
 </project>
