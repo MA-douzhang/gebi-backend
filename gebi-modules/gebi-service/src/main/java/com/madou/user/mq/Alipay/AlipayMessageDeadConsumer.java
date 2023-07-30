@@ -3,7 +3,7 @@ package com.madou.user.mq.Alipay;
 import com.madou.common.common.ErrorCode;
 import com.madou.common.constant.MqConstant;
 import com.madou.common.excption.BusinessException;
-import com.madou.user.constant.OrdersConstant;
+import com.madou.user.api.constant.OrdersConstant;
 import com.madou.user.api.model.entity.Orders;
 import com.madou.user.service.OrdersService;
 import com.rabbitmq.client.Channel;

@@ -5,17 +5,13 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.madou.common.common.ErrorCode;
 import com.madou.common.excption.BusinessException;
 import com.madou.user.api.InnerUserService;
+import com.madou.user.api.constant.UserConstant;
 import com.madou.user.api.model.entity.User;
 import com.madou.user.api.model.enums.UserRoleEnum;
-import com.madou.user.constant.UserConstant;
 import com.madou.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.HttpServletRequest;
-
-import static com.madou.user.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * @author MA_dou
@@ -36,7 +32,7 @@ public class InnerUserServiceImpl implements InnerUserService {
         // 先判断是否已登录
         SaSession saSession = StpUtil.getTokenSession();
         // 先判断是否已登录
-        Object userObj = saSession.get(USER_LOGIN_STATE);
+        Object userObj = saSession.get(UserConstant.USER_LOGIN_STATE);
         User currentUser = (User) userObj;
         if (currentUser == null || currentUser.getId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
@@ -55,7 +51,7 @@ public class InnerUserServiceImpl implements InnerUserService {
         // 仅管理员可查询
         SaSession saSession = StpUtil.getTokenSession();
         // 先判断是否已登录
-        Object userObj = saSession.get(USER_LOGIN_STATE);
+        Object userObj = saSession.get(UserConstant.USER_LOGIN_STATE);
         User user = (User) userObj;
         return isAdmin(user);
     }

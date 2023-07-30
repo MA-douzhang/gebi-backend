@@ -73,6 +73,7 @@ springdoc:
   default-flat-param-object: false
 
 mybatis-plus:
+  mapperPackage: com.madou.**.mapper
   type-aliases-package: com.madou.chart
   mapper-locations: classpath:mapper/*.xml
   configuration:

@@ -11,13 +11,14 @@ import com.madou.common.constant.CommonConstant;
 import com.madou.common.excption.BusinessException;
 import com.madou.common.excption.ThrowUtils;
 import com.madou.common.utils.SqlUtils;
-import com.madou.user.api.model.entity.User;
-import com.madou.user.mapper.UserMapper;
+import com.madou.user.api.constant.UserConstant;
 import com.madou.user.api.model.dto.user.UserQueryRequest;
 import com.madou.user.api.model.entity.Credit;
+import com.madou.user.api.model.entity.User;
 import com.madou.user.api.model.enums.UserRoleEnum;
 import com.madou.user.api.model.vo.LoginUserVO;
 import com.madou.user.api.model.vo.UserVO;
+import com.madou.user.mapper.UserMapper;
 import com.madou.user.service.CreditService;
 import com.madou.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +31,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static com.madou.user.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户服务实现
@@ -122,7 +121,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // sa-token记录
         StpUtil.login(user.getId());
         // 3. 记录用户的登录态
-        StpUtil.getTokenSession().set(USER_LOGIN_STATE, user);
+        StpUtil.getTokenSession().set(UserConstant.USER_LOGIN_STATE, user);
         LoginUserVO loginUserVO = this.getLoginUserVO(user);
 
         return loginUserVO;
@@ -137,7 +136,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getLoginUser() {
         SaSession saSession = StpUtil.getTokenSession();
         // 先判断是否已登录
-        Object userObj = saSession.get(USER_LOGIN_STATE);
+        Object userObj = saSession.get(UserConstant.USER_LOGIN_STATE);
         User currentUser = (User) userObj;
         if (currentUser == null || currentUser.getId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
@@ -160,7 +159,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getLoginUserPermitNull() {
         SaSession saSession = StpUtil.getTokenSession();
         // 先判断是否已登录
-        Object userObj = saSession.get(USER_LOGIN_STATE);
+        Object userObj = saSession.get(UserConstant.USER_LOGIN_STATE);
         User currentUser = (User) userObj;
         if (currentUser == null || currentUser.getId() == null) {
             return null;
@@ -179,7 +178,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public boolean isAdmin() {
         // 仅管理员可查询
         SaSession saSession = StpUtil.getTokenSession();
-        Object userObj = saSession.get(USER_LOGIN_STATE);
+        Object userObj = saSession.get(UserConstant.USER_LOGIN_STATE);
         User user = (User) userObj;
         return isAdmin(user);
     }

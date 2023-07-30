@@ -14,6 +14,9 @@
     <modules>
         <module>gebi-common-satoken</module>
         <module>gebi-common-dubbo</module>
+        <module>gebi-common-mybatis</module>
+        <module>gebi-common-mq</module>
+        <module>gebi-common-ai</module>
     </modules>
     <dependencies>
         <dependency>

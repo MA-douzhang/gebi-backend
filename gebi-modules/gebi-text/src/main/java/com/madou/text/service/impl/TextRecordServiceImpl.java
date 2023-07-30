@@ -21,7 +21,7 @@ public class TextRecordServiceImpl extends ServiceImpl<TextRecordMapper, TextRec
         String textContent = textRecord.getTextContent();
         //构造用户输入
         StringBuilder userInput = new StringBuilder();
-        String gold = "请使用"+textTaskType+"语法对下面文章格式化";
+        String gold = "请使用"+textTaskType+"格式对下面文章做格式转换";
 
         userInput.append(gold).append("\n");
 

@@ -1,6 +1,5 @@
 package com.madou.user.controller;
 
-import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -11,9 +10,9 @@ import com.madou.common.common.ResultUtils;
 import com.madou.common.excption.BusinessException;
 import com.madou.common.excption.ThrowUtils;
 import com.madou.user.annotation.AuthCheck;
-import com.madou.user.api.model.entity.User;
-import com.madou.user.constant.UserConstant;
+import com.madou.user.api.constant.UserConstant;
 import com.madou.user.api.model.dto.user.*;
+import com.madou.user.api.model.entity.User;
 import com.madou.user.api.model.vo.LoginUserVO;
 import com.madou.user.api.model.vo.UserVO;
 import com.madou.user.service.CreditService;

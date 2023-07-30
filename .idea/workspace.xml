@@ -4,165 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="7/26 cloud结构swagger+nacos+dubbo">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/constant/ChartConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/ChartAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/ChartEditRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/ChartQueryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/ChartRebuildRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/ChartUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/dto/GenChartByAiRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/entity/Chart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/model/vo/ChartVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/constant/TextConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/GenTextTaskByAiRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/TextAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/TextEditRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/TextRebuildRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/TextTaskQueryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/dto/TextUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/entity/TextRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/entity/TextTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/src/main/java/com/madou/text/api/model/vo/TextTaskVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/InnerCreditService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/InnerUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/CreditConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/UserConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/credit/CreditAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/credit/CreditEditRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/credit/CreditQueryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/credit/CreditUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/order/OrderAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/order/OrderUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserLoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserQueryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserRegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserUpdateMyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/dto/user/UserUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/entity/Credit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/entity/Orders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/enums/UserRoleEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/vo/LoginUserVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/model/vo/UserVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-dubbo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-satoken/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-satoken/src/main/java/utils/LoginHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/annotation/AuthCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/BaseResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/DeleteRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/PageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/ResultUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/CommonConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/MqConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/BusinessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/ThrowUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/model/vo/AiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/ExcelUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/NetUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/SqlUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/TxtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/config/properties/IgnoreWhiteProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/filter/AuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/filter/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/filter/ForwardAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/handler/GatewayExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/utils/WebFluxUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMessageConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMessageDeadConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMqInitMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/aop/AuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/aop/LogInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/config/JsonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/config/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/manager/AiManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/mapper/ChartMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/mq/MqMessageProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/service/ChartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/service/impl/Chart1ServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/mapper/ChartMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/annotation/AuthCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/aop/AuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/aop/LogInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/AliPayConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/JsonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/RedissonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/CreditConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/OrdersConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/UserConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/AliPayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/CreditController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/dubbo/InnerCreditServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/dubbo/InnerUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/manager/AiManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mapper/CreditMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mapper/OrdersMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageDeadConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMqInitMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/common/MqMessageProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/CreditService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/OrdersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/CreditServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/OrdersServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/mapper/CreditMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMessageConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMessageDeadConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMqInitMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/aop/AuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/aop/LogInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/config/JsonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/config/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/manager/AiManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mapper/TextRecordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mapper/TextTaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mq/MqMessageProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/TextRecordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/TextTaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/impl/TextRecordServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/impl/TextTaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/mapper/TextRecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/mapper/TextTaskMapper.xml" afterDir="false" />
+    <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-ai/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-ai/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mq/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mq/src/main/java/com/madou/common/mq/constant/MqConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mq/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-chart-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/service/ChartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/src/main/java/com/madou/chart/api/service/Chart1Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/ChartMainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/ChartMainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/mq/BiMessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMessageDeadConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/mq/BiMessageDeadConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/Bi/BiMqInitMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/config/JsonConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/config/MyBatisPlusConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/controller/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/controller/ChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/service/impl/ChartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/service/impl/ChartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/manager/AiManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/mq/MqMessageProducer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/service/ServiceMainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/ServiceMainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/service/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/controller/Chart1Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/JsonConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/MyBatisPlusConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/CreditConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/OrdersConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/OrdersConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/constant/UserConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/AliPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/AliPayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/CreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/CreditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/dubbo/InnerUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/dubbo/InnerUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/manager/AiManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageDeadConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMessageDeadConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/Alipay/AlipayMqInitMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mq/src/main/java/com/madou/common/mq/config/MqInitMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/mq/common/MqMessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mq/src/main/java/com/madou/common/mq/config/MqMessageProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/CreditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/CreditServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mq/TextMq/TextMessageConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMessageDeadConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mq/TextMq/TextMessageDeadConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/TextMq/TextMqInitMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/config/JsonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/src/main/java/com/madou/common/mybatis/config/JsonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/config/MyBatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/src/main/java/com/madou/common/mybatis/config/MyBatisPlusConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/controller/TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/controller/TextController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/manager/AiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-ai/src/main/java/com/madou/common/ai/config/AiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/mq/MqMessageProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/impl/TextRecordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/java/com/madou/text/service/impl/TextRecordServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +69,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -220,7 +116,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/项目开发/GeBI/cloud/gebi-cloud/gebi-modules/gebi-text/src/main/java/com/madou/text",
+    "last_opened_file_path": "D:/项目开发/GeBI/cloud/gebi-cloud/gebi-common/gebi-common-ai/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -230,7 +126,7 @@
     "project.structure.side.proportion": "0.2",
     "service.view.auto.scroll.to.source": "true",
     "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "dd56176fa0d32240964266a2f573a3ea",
+    "spring.configuration.checksum": "248873deeed7860027213b28cc4703e1",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -247,18 +143,22 @@
       <recent name="com.madou.chart.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-ai\src\main\resources" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-mq\src\main\resources\META-INF\spring" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-mybatis\src\main\resources\META-INF.spring" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-mybatis\src\main\resources" />
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\java\com\madou\text" />
-      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\resources\mapper" />
-      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\java\com\madou\text\mapper" />
-      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\java\com\madou\text\service\impl" />
-      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\java\com\madou\text\service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-ai\src\main\resources\META-INF" />
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-common\gebi-common-mybatis\src\main\resources\META-INF\spring" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.madou.text.mq" />
-      <recent name="com.madou.text.manager" />
-      <recent name="com.madou.text.api.constant.model.vo" />
-      <recent name="com.madou.text.controller" />
-      <recent name="com.madou.chart.config" />
+      <recent name="com.madou.common.ai.config" />
+      <recent name="com.madou.user.api.constant" />
+      <recent name="com.madou.common.mq.config" />
+      <recent name="com.madou.common.mq.constant" />
+      <recent name="com.madou.common.mybatis.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -268,7 +168,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServiceMainApplication">
+  <component name="RunManager" selected="Spring Boot.ChartMainApplication">
     <configuration name="ChartMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="gebi-chart" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.madou.chart.ChartMainApplication" />
@@ -306,6 +206,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.gateway-8099" />
+      <item itemvalue="Spring Boot.TextMainApplication" />
+      <item itemvalue="Spring Boot.ServiceMainApplication" />
+      <item itemvalue="Spring Boot.ChartMainApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ChartMainApplication" />
@@ -331,7 +237,8 @@
       <workItem from="1690461485206" duration="4998000" />
       <workItem from="1690504496358" duration="604000" />
       <workItem from="1690602141614" duration="22226000" />
-      <workItem from="1690640372286" duration="5724000" />
+      <workItem from="1690640372286" duration="6358000" />
+      <workItem from="1690707789870" duration="9239000" />
     </task>
     <task id="LOCAL-00001" summary="7/26 cloud结构swagger+nacos+dubbo">
       <created>1690382690077</created>
@@ -340,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690382690077</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="7/30 完成代码上传">
+      <created>1690647059830</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690647059830</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,16 +274,12 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="7/26 cloud结构swagger+nacos+dubbo" />
-    <option name="LAST_COMMIT_MESSAGE" value="7/26 cloud结构swagger+nacos+dubbo" />
+    <MESSAGE value="7/30 完成代码上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="7/30 完成代码上传" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/dubbo/InnerUserServiceImpl.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="cn.dev33.satoken.exception.SameTokenInvalidException" package="cn.dev33.satoken.exception" />
           <option name="timeStamp" value="10" />

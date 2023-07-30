@@ -1,6 +1,5 @@
 package com.madou.user.controller;
 
-import cn.dev33.satoken.session.SaSession;
 import cn.hutool.json.JSONObject;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -9,12 +8,12 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.madou.common.common.ErrorCode;
 import com.madou.common.constant.MqConstant;
 import com.madou.common.excption.ThrowUtils;
+import com.madou.common.mq.config.MqMessageProducer;
+import com.madou.user.api.constant.OrdersConstant;
 import com.madou.user.api.model.dto.order.OrderAddRequest;
 import com.madou.user.api.model.entity.Orders;
 import com.madou.user.api.model.entity.User;
 import com.madou.user.config.AliPayConfig;
-import com.madou.user.constant.OrdersConstant;
-import com.madou.user.mq.common.MqMessageProducer;
 import com.madou.user.service.CreditService;
 import com.madou.user.service.OrdersService;
 import com.madou.user.service.UserService;

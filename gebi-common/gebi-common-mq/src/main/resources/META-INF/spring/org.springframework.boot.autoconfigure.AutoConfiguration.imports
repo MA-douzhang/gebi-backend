@@ -1,0 +1,3 @@
+com.madou.common.mq.config.MqInitMain
+com.madou.common.mq.config.MqMessageProducer
+

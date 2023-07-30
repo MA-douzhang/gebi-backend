@@ -2,14 +2,12 @@ package com.madou.chart.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.google.gson.Gson;
 import com.madou.chart.api.constant.ChartConstant;
 import com.madou.chart.api.model.dto.*;
 import com.madou.chart.api.model.entity.Chart;
 import com.madou.chart.api.model.vo.ChartVO;
-import com.madou.chart.manager.AiManager;
-import com.madou.chart.mq.MqMessageProducer;
 import com.madou.chart.service.ChartService;
+import com.madou.common.ai.config.AiManager;
 import com.madou.common.annotation.AuthCheck;
 import com.madou.common.common.BaseResponse;
 import com.madou.common.common.DeleteRequest;
@@ -20,6 +18,7 @@ import com.madou.common.constant.MqConstant;
 import com.madou.common.excption.BusinessException;
 import com.madou.common.excption.ThrowUtils;
 import com.madou.common.model.vo.AiResponse;
+import com.madou.common.mq.config.MqMessageProducer;
 import com.madou.common.utils.SqlUtils;
 import com.madou.user.api.InnerUserService;
 import com.madou.user.api.constant.UserConstant;
@@ -34,8 +33,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 图表分析接口

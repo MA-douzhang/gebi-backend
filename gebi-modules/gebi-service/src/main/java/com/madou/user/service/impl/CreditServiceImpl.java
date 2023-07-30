@@ -7,9 +7,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.madou.common.common.ErrorCode;
 import com.madou.common.excption.BusinessException;
 import com.madou.common.excption.ThrowUtils;
-import com.madou.user.constant.CreditConstant;
-import com.madou.user.mapper.CreditMapper;
+import com.madou.user.api.constant.CreditConstant;
 import com.madou.user.api.model.entity.Credit;
+import com.madou.user.mapper.CreditMapper;
 import com.madou.user.service.CreditService;
 import org.springframework.stereotype.Service;
 
