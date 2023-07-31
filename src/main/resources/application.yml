@@ -56,7 +56,7 @@ spring:
           max-interval: 60000
 server:
   address: 0.0.0.0
-  port: 9094
+  port: 9099
   servlet:
     context-path: /api
     # cookie 30 天过期
