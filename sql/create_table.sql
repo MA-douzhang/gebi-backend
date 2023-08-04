@@ -1,6 +1,4 @@
 # 建表脚本
-# @author <a href="https://github.com/liyupi">程序员鱼皮</a>
-# @from <a href="https://yupi.icu">编程导航知识星球</a>
 
 -- 创建库
 create database if not exists ge_bi;
@@ -57,6 +55,7 @@ create table if not exists orders
 (
     id            bigint auto_increment comment 'id' primary key comment '订单id',
     alipayTradeNo varchar(128)                       null comment '支付宝交易凭证id',
+    `userId`      bigint                             NOT NULL COMMENT '用户id',
     subject       varchar(128)                       not null comment '交易名称',
     totalAmount   double                             not null comment '交易金额',
     tradeStatus   varchar(128)                       not null default 'unpaid ' comment 'unpaid,paying,succeed,failed',
@@ -65,7 +64,6 @@ create table if not exists orders
     updateTime    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete      tinyint  default 0                 not null comment '是否删除'
 ) comment '充值订单表' collate = utf8mb4_unicode_ci;
-
 -- 文本任务表
 create table if not exists text_task
 (
