@@ -11,14 +11,14 @@ spring:
       server-addr: 172.17.0.2:8848 #注册中心
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.71.138.38:3306/ge_bi
+    url: jdbc:mysql://服务器:3306/ge_bi
     username: gebi
     password: 789159357Zj
     # Redis 配置
     # todo 需替换配置，然后取消注释
   redis:
     database: 3
-    host: 124.71.138.38
+    host: 服务器
     port: 6379
     timeout: 5000
     password: 789159357Zj

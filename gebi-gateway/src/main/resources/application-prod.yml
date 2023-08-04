@@ -5,7 +5,7 @@ spring:
     name: gebi-gateway-8099
   redis:
     database: 3
-    host: 124.71.138.38
+    host: 服务器
     port: 6379
     timeout: 5000
     password: 789159357Zj

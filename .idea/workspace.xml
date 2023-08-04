@@ -5,65 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/create_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/Docker部署.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/后端拓展笔记.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-chart-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-chart-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-text-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-text-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/OrdersConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/OrdersConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/gebi-common-dubbo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-mybatis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/gebi-common-satoken/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/gebi-common-satoken/src/main/java/utils/LoginHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/annotation/AuthCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/annotation/AuthCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/BaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/BaseResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/DeleteRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/DeleteRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/PageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/PageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/common/ResultUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/common/ResultUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/constant/CommonConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/constant/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/constant/MqConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/constant/MqConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/excption/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/excption/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/excption/ThrowUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/excption/ThrowUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/model/vo/AiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/model/vo/AiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/ExcelUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/utils/ExcelUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/NetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/utils/NetUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/SqlUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/utils/SqlUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-common/src/main/java/com/madou/common/utils/TxtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java/com/madou/common/utils/TxtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/filter/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/filter/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/handler/GatewayExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/java/com/madou/gateway/handler/GatewayExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/aop/AuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/java/com/madou/chart/aop/AuthInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/aop/AuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/aop/AuthInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/java/com/madou/user/config/RedissonConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,37 +63,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/项目开发/GeBI/cloud/gebi-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9eb1ed2b084cc2371c9bd8d3c69fda75&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/项目开发/GeBI/cloud/gebi-cloud/doc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "Docker",
+    "spring.configuration.checksum": "9eb1ed2b084cc2371c9bd8d3c69fda75",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -337,6 +286,7 @@
       <workItem from="1691062952003" duration="2527000" />
       <workItem from="1691069625716" duration="5255000" />
       <workItem from="1691110625530" duration="28000" />
+      <workItem from="1691134108889" duration="3564000" />
     </task>
     <task id="LOCAL-00001" summary="7/26 cloud结构swagger+nacos+dubbo">
       <created>1690382690077</created>
@@ -359,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690722859045</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add 8/4 项目部署dockerfile">
+      <created>1691134191221</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691134191221</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +350,8 @@
     <MESSAGE value="7/26 cloud结构swagger+nacos+dubbo" />
     <MESSAGE value="7/30 完成代码上传" />
     <MESSAGE value="7/30 微服务框架重构" />
-    <option name="LAST_COMMIT_MESSAGE" value="7/30 微服务框架重构" />
+    <MESSAGE value="add 8/4 项目部署dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 8/4 项目部署dockerfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

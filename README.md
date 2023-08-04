@@ -1,12 +1,21 @@
 # 前言
 ***
-GeBI-Cloud项目的后端源码，主要是用于总结学习微服务的知识和利用AI实现更便捷的功能。
+开源地址
+
+[微服务框架前端代码](https://github.com/MA-douzhang/gebi-frontend/tree/dev-cloud)
+
+[微服务框架后端代码](https://github.com/MA-douzhang/gebi-backend/tree/dev-cloud)
+
+[SpringBoot框架前端代码](https://github.com/MA-douzhang/gebi-frontend)
+
+[SpringBoot框架后端代码](https://github.com/MA-douzhang/gebi-backend)
+
+***
+当前是GeBI-Cloud项目的后端源码，主要是用于总结学习微服务的知识和利用AI实现更便捷的功能。
 
 后端功能主要分为，三个服务模块，gebi-user（用户服务），gebi-chart（图表服务），gebi-text（文本服务）。
 
 框架中整合了RabbitMQ + Sa-token + Mybatis + Redis 作为公共模块
-
-前端源码已经开源GeBI-front-cloud，[前端源码项目](https://github.com/MA-douzhang/gebi-frontend/tree/dev-cloud)
 
 后端源码GeBi使用Spring Boot 框架，在分支中master可以查看
 ## 技术栈
@@ -26,13 +35,9 @@ RPC框架：Dubbo
 插件：Sa-token（分布式用户验证），Mybatis(Plus)，Swagger（接口文档）
 
 # 服务器部署
-1. 使用服务器配置为1核2G
+1. 使用服务器配置为2核4G
 2. 宝塔面板
-
-
-## GeBI的前端源码
-***
-Gebase-front 后台系统，[前端源码项目](https://github.com/MA-douzhang/gebi-frontend)
+3. 详细步骤和思路笔记在项目doc目录下
 
 ## 说明
 ***
