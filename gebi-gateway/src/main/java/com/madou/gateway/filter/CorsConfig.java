@@ -1,5 +1,6 @@
 package com.madou.gateway.filter;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.web.util.pattern.PathPatternParser;
  * @date 2023/1/30 17:57
  * 跨域配置
  */
+@Configuration
 public class CorsConfig {
     @Bean
     public CorsWebFilter corsWebFilter() {
@@ -22,7 +24,7 @@ public class CorsConfig {
         // 允许所有请求方法
         corsConfig.addAllowedMethod ("*");
         // 允许所有域，当请求头
-        corsConfig.addAllowedOrigin ("*");
+        corsConfig.addAllowedOriginPattern("*");
         // 允许全部请求头
         corsConfig.addAllowedHeader ("*");
         // 允许携带 Cookie 等用户凭证

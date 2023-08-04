@@ -1,0 +1,115 @@
+server:
+  port: 9096
+  servlet:
+    context-path: /textApi
+
+spring:
+  application:
+    name: gebi-text-9096
+  cloud:
+    nacos:
+      server-addr: 172.17.0.2:8848 #注册中心
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.71.138.38:3306/ge_bi
+    username: gebi
+    password: 789159357Zj
+    # Redis 配置
+    # todo 需替换配置，然后取消注释
+  redis:
+    database: 3
+    host: 124.71.138.38
+    port: 6379
+    timeout: 5000
+    password: 789159357Zj
+    lettuce:
+      pool:
+        # 连接池最大连接数
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 文件上传
+  servlet:
+    multipart:
+      # 大小限制
+      max-file-size: 10MB
+  rabbitmq:
+    addresses: 172.17.0.3
+    port: 5672
+    username: guest
+    password: 789159357Zj
+    listener:
+      direct:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 5000
+          multiplier: 1.5
+          max-interval: 60000
+  config:
+    activate:
+      on-profile:
+        - prod
+dubbo:
+  application:
+    name: dubbo-text
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://172.17.0.2:8848
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    show-extensions: true
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.madou.text.api
+  default-flat-param-object: false
+
+mybatis-plus:
+  mapperPackage: com.madou.**.mapper
+  type-aliases-package: com.madou.text
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
+
+#鱼聪明
+yuapi:
+  client:
+    access-key: ux7bpq5mqr8db3n0dfhd46bunkebr8f3
+    secret-key: eg6zsakkz0av0f6jae3g3cw163nw56hc
+
+sa-token:
+  # token 名称（同时也是 cookie 名称）
+  token-name: Authorization
+  # 打开RPC调用鉴权
+  check-same-token: true
+  # token 有效期（单位：秒） 默认30天，-1 代表永久有效
+  timeout: 2592000
+  # token 最低活跃频率（单位：秒），如果 token 超过此时间没有访问系统就会被冻结，默认-1 代表不限制，永不冻结
+  activity-timeout: 1800000
+  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
+  is-share: false
+  # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: true

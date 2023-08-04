@@ -13,6 +13,8 @@
     <file url="file://$PROJECT_DIR$/gebi-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-ai/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-ai/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-doc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-doc/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gebi-common/gebi-common-dubbo/src/main/java" charset="UTF-8" />

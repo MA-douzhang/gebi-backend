@@ -10,7 +10,7 @@ public interface OrdersConstant {
      * 回调地址(本地部署时需要内网穿透)
      */
     //todo 可以在配置文件中修改
-    String NOTIFYURL = "http://xymcjk.natappfree.cc/userApi/alipay/notify";
+    String NOTIFYURL = "http://139.155.130.108:8099/userApi/alipay/notify";
 
     /**
      * 未支付

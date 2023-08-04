@@ -12,21 +12,15 @@
     <artifactId>gebi-common</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>gebi-common-satoken</module>
-        <module>gebi-common-dubbo</module>
         <module>gebi-common-mybatis</module>
         <module>gebi-common-mq</module>
         <module>gebi-common-ai</module>
+        <module>gebi-common-common</module>
     </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -46,7 +40,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

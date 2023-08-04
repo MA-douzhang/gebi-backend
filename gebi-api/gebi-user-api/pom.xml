@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>com.madou</groupId>
-            <artifactId>gebi-common</artifactId>
+            <artifactId>gebi-common-common</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

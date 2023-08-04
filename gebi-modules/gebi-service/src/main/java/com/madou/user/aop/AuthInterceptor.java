@@ -1,8 +1,5 @@
 package com.madou.user.aop;
 
-import cn.dev33.satoken.servlet.model.SaRequestForServlet;
-import cn.dev33.satoken.session.SaSession;
-import cn.dev33.satoken.stp.StpUtil;
 import com.madou.common.common.ErrorCode;
 import com.madou.common.excption.BusinessException;
 import com.madou.common.utils.SqlUtils;
@@ -15,12 +12,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 权限校验 AOP

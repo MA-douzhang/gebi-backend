@@ -10,6 +10,8 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/gebi-common/gebi-common-doc/pom.xml" />
+        <option value="$PROJECT_DIR$/gebi-common/gebi-common-dubbo/pom.xml" />
+        <option value="$PROJECT_DIR$/gebi-common/gebi-common-satoken/pom.xml" />
         <option value="$PROJECT_DIR$/gebi-modules/gebi-chart/gebi-chart-api/pom.xml" />
       </set>
     </option>
