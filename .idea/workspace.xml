@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/Docker部署.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/后端拓展笔记.md" afterDir="false" />
+    <list default="true" id="e05df68a-13a0-48a5-84c8-288f4bcef9b2" name="Changes" comment="add 8/4 项目文档补充">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/OrdersConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-api/gebi-user-api/src/main/java/com/madou/user/api/constant/OrdersConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-gateway/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-chart/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gebi-modules/gebi-text/src/main/resources/application-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,37 +65,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/项目开发/GeBI/cloud/gebi-cloud/doc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "service.view.auto.scroll.to.source": "true",
-    "settings.editor.selected.configurable": "Docker",
-    "spring.configuration.checksum": "9eb1ed2b084cc2371c9bd8d3c69fda75",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/项目开发/GeBI/cloud/gebi-cloud/doc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9eb1ed2b084cc2371c9bd8d3c69fda75&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -102,11 +104,11 @@
       <recent name="com.madou.chart.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\doc" />
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-service\src\main\resources" />
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-service\src\main\resources\mapper" />
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-text\src\main\resources" />
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\sql" />
-      <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\gebi-modules\gebi-chart\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\项目开发\GeBI\cloud\gebi-cloud\sql" />
@@ -128,7 +130,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.gebi-gateway-8099">
+  <component name="RunManager" selected="Docker.gebi-text-9096">
     <configuration name="ChartMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" />
       <module name="gebi-chart" />
@@ -168,7 +170,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gebi-chart-9095" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+    <configuration name="gebi-chart-9095" type="docker-deploy" factoryName="dockerfile" server-name="DockerHawei">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="gebi-chart-9095" />
@@ -186,7 +188,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="gebi-gateway-8099" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+    <configuration name="gebi-gateway-8099" type="docker-deploy" factoryName="dockerfile" server-name="DockerHawei">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="gebi-gateway" />
@@ -204,7 +206,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="gebi-service-9094" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+    <configuration name="gebi-service-9094" type="docker-deploy" factoryName="dockerfile" server-name="DockerHawei">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="gebi-service-9094" />
@@ -222,7 +224,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="gebi-text-9096" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+    <configuration name="gebi-text-9096" type="docker-deploy" factoryName="dockerfile" server-name="DockerHawei">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="gebi-text-9096" />
@@ -286,7 +288,10 @@
       <workItem from="1691062952003" duration="2527000" />
       <workItem from="1691069625716" duration="5255000" />
       <workItem from="1691110625530" duration="28000" />
-      <workItem from="1691134108889" duration="3564000" />
+      <workItem from="1691134108889" duration="4209000" />
+      <workItem from="1691206570376" duration="2630000" />
+      <workItem from="1691209423596" duration="2504000" />
+      <workItem from="1691218057363" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="7/26 cloud结构swagger+nacos+dubbo">
       <created>1690382690077</created>
@@ -316,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691134191221</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add 8/4 项目文档补充">
+      <created>1691141775616</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691141775616</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +363,8 @@
     <MESSAGE value="7/30 完成代码上传" />
     <MESSAGE value="7/30 微服务框架重构" />
     <MESSAGE value="add 8/4 项目部署dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 8/4 项目部署dockerfile" />
+    <MESSAGE value="add 8/4 项目文档补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 8/4 项目文档补充" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,7 +8,7 @@ spring:
     host: 服务器
     port: 6379
     timeout: 5000
-    password: 789159357Zj
+    password: 服务器密码
     lettuce:
       pool:
         # 连接池最大连接数
@@ -42,10 +42,10 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "http://139.155.130.108:9094"
-              - "http://139.155.130.108:9095"
-              - "http://139.155.130.108:9096"
-              - "http://139.155.130.108:80"
+              - "http://60.204.157.128:9094"
+              - "http://60.204.157.128:9095"
+              - "http://60.204.157.128:9096"
+              - "http://60.204.157.128:80"
             allowedMethods:
               - "GET"
               - "POST"
